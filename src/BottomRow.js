@@ -5,6 +5,7 @@ const BottomRow = () => {
   const [downValue, setDownValue] = useState(3);
   const [toGoValue, setToGoValue] = useState(7);
   const [ballOnValue, setBallOnValue] = useState(21);
+  const [quarterValue, setQuarterValue] = useState(1);
 
   const downValueChange = () => {
     setDownValue(downValue + 1);
@@ -17,6 +18,15 @@ const BottomRow = () => {
 
   const ballOnDecrement = () => {
     setBallOnValue(ballOnValue - 1);
+  }
+console.log(quarterValue);
+  const quarterIncrement = () => {
+    if(quarterValue < 4) {
+      setQuarterValue(quarterValue + 1);
+    }
+    else if (quarterValue >= 4 ) {
+      setQuarterValue(0);
+    }
   }
 
 
@@ -36,12 +46,13 @@ const BottomRow = () => {
       </div>
       <div className="quarter">
         <h3 className="quarter__title">Quarter</h3>
-        <div className="quarter__value">4</div>
+        <div className="quarter__value">{quarterValue}</div>
       </div>
       <div>
         <button onClick={downValueChange}>Match +</button>
         <button onClick={ballOnIncrement}>Ball +</button>
         <button onClick={ballOnDecrement}>Ball -</button>
+        <button onClick={quarterIncrement}>Qtr +</button>
       </div>
     </div>
     
